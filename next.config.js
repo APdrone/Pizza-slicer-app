@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  basepath: "/",
   reactStrictMode: true,
   images: {
     domains: ["res.cloudinary.com"],

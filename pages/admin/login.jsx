@@ -13,7 +13,8 @@ const Login = () => {
   const handleClick = async () => {
     // console.log(username, password);
     try {
-      await axios.post("http://localhost:3000/api/v1/login", {
+      // await axios.post("http://localhost:3000/api/v1/login", {
+      await axios.post(`${process.env.API_URL}/api/v1/login`, {
         username,
         password,
       });

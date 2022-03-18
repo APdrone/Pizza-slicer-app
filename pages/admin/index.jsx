@@ -12,7 +12,8 @@ const Index = ({ orders, products }) => {
   const handleDelete = async (id) => {
     try {
       const resp = await axios.delete(
-        `http://localhost:3000/api/v1/products/${id}`
+        // `http://localhost:3000/api/v1/products/${id}`
+        `${process.env.API_URL}/api/v1/products/${id}`
       );
       setPizzaList(pizzaList.filter((pizza) => pizza._id !== id));
     } catch (err) {
@@ -27,7 +28,8 @@ const Index = ({ orders, products }) => {
 
     try {
       const resp = await axios.put(
-        `http://localhost:3000/api/v1/orders/${id}`,
+        // `http://localhost:3000/api/v1/orders/${id}`,
+        `${process.env.API_URL}/api/v1/orders/${id}`,
         { status: currenStatus + 1 }
       );
       setOrderList([
@@ -135,9 +137,11 @@ export const getServerSideProps = async (ctx) => {
       },
     };
   }
-  const productsRes = await axios.get("http://localhost:3000/api/v1/products");
+  // const productsRes = await axios.get("http://localhost:3000/api/v1/products");
+  const productsRes = await axios.get(`${process.env.API_URL}/api/v1/products`);
 
-  const orderRes = await axios.get("http://localhost:3000/api/v1/orders");
+  // const orderRes = await axios.get("http://localhost:3000/api/v1/orders");
+  const orderRes = await axios.get(`${process.env.API_URL}/api/v1/orders`);
 
   return {
     props: {
