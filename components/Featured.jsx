@@ -4,11 +4,7 @@ import styles from "../styles/Featured.module.css";
 import { useState } from "react";
 
 const Featured = () => {
-  const images = [
-    "/img/featured.jpg",
-    "/img/featured1.jpg",
-    "/img/featured2.jpg",
-  ];
+  const images = ["/img/ad1.jpg", "/img/ad2.jpg", "/img/featured2.jpg"];
 
   const [index, setIndex] = useState(0);
 
